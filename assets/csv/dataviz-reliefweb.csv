@@ -1,0 +1,182 @@
+crisis_index,crisis_name,crisis_iso3,figure_name,figure_source,figure_value,figure_date,figure_url
+1,Afghanistan,AFG,People in Need,OCHA,18400000,2020-12-01,https://reliefweb.int/node/3692232
+1,Afghanistan,AFG,People Targeted for Assistance,OCHA,15700000,2020-12-01,https://reliefweb.int/node/3692232
+1,Afghanistan,AFG,Children in Need,UNICEF,7400000,2020-12-14,https://reliefweb.int/node/3697069
+1,Afghanistan,AFG,People in Food Crisis/Emergency (IPC phase 3+),IPC,10938000,2021-04-22,https://reliefweb.int/node/3732293
+1,Afghanistan,AFG,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+1,Afghanistan,AFG,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+1,Afghanistan,AFG,New Displacements by Disasters (per year),IDMC,117000,2019-12-31,https://m.reliefweb.int/report/3622549
+2,Bangladesh,BGD,Refugees in Kutupalong RC in Cox's Bazar,ISCG,16711,2020-08-31,https://reliefweb.int/node/3676346
+2,Bangladesh,BGD,Refugees in Kutupalong Expansion Site in Cox's Bazar,ISCG,582135,2020-08-31,https://reliefweb.int/node/3676346
+3,Burkina Faso,BFA,People in Need,OCHA,3500000,2021-02-11,https://reliefweb.int/node/3712362
+3,Burkina Faso,BFA,People Targeted for Assistance,OCHA,2900000,2021-02-11,https://reliefweb.int/node/3712362
+3,Burkina Faso,BFA,People in Food Crisis/Emergency (IPC Phase 3+),CILSS,2076319,2021-04-29,https://reliefweb.int/node/3734261
+3,Burkina Faso,BFA,Children Acutely Malnourished,CILSS,631787,2021-01-15,https://reliefweb.int/node/3704679
+3,Burkina Faso,BFA,Children in Need,UNICEF,1700000,2020-12-14,https://reliefweb.int/node/3697467
+3,Burkina Faso,BFA,IDPs,UNHCR,1121960,2021-02-28,https://reliefweb.int/node/3722416
+3,Burkina Faso,BFA,Refugees in Burkina Faso,UNHCR,20256,2021-02-28,https://reliefweb.int/node/3726884
+3,Burkina Faso,BFA,New Displacements by Disasters (per year),IDMC,0,2019-12-31,https://m.reliefweb.int/report/3622549
+4,Burundi,BDI,People in Need,OCHA,2300000,2021-03-16,https://reliefweb.int/node/3721662
+4,Burundi,BDI,People Targeted for Assistance,OCHA,1060000,2021-03-16,https://reliefweb.int/node/3721662
+4,Burundi,BDI,Children in Need,OCHA,1000000,2020-11-17,https://reliefweb.int/node/3689017
+4,Burundi,BDI,IDPs,IOM,108598,2021-02-28,https://reliefweb.int/node/3729051
+4,Burundi,BDI,Refugees in Burundi,UNHCR,80596,2021-03-31,https://reliefweb.int/node/3733262
+5,Cameroon,CMR,People in Need,OCHA,4400000,2021-04-07,https://reliefweb.int/node/3727988
+5,Cameroon,CMR,People Targeted for Assistance,OCHA,3000000,2021-04-07,https://reliefweb.int/node/3727988
+5,Cameroon,CMR,Children in Need,UNICEF,3200000,2020-12-14,https://reliefweb.int/node/3697469
+5,Cameroon,CMR,People in Food Crisis/Emergency (IPC Phase 3+),IPC,2625472,2021-04-29,https://reliefweb.int/node/3734261
+5,Cameroon,CMR,IDPs,UNHCR,1032942,2021-03-31,https://reliefweb.int/node/3727977
+5,Cameroon,CMR,Refugees in Far North,UNHCR,114324,2020-08-31,https://reliefweb.int/node/3671085
+5,Cameroon,CMR,New Displacements by Disasters (per year),IDMC,24000,2019-12-31,https://m.reliefweb.int/report/3622549
+6,Central African Republic,CAF,People in Need,OCHA,2800000,2020-12-14,https://reliefweb.int/node/3696707
+6,Central African Republic,CAF,People Targeted for Assistance,OCHA,1840000,2020-12-14,https://reliefweb.int/node/3696707
+6,Central African Republic,CAF,IDPs,CMP,738279,2021-03-31,https://reliefweb.int/node/3729264
+6,Central African Republic,CAF,Children in Need,UNICEF,1300000,2020-11-19,https://reliefweb.int/node/3689831
+6,Central African Republic,CAF,People in Food Crisis/Emergency (IPC Phase 3+),IPC,1930000,2020-09-30,https://reliefweb.int/node/3677464
+6,Central African Republic,CAF,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+6,Central African Republic,CAF,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+6,Central African Republic,CAF,New Displacements by Conflict (per year),IDMC,96000,2019-12-31,https://m.reliefweb.int/report/3622549
+7,Chad,TCD,People in Need,OCHA,5500000,2021-02-05,https://reliefweb.int/node/3735612
+7,Chad,TCD,People Targeted for Assistance,OCHA,4000000,2021-02-05,https://reliefweb.int/node/3735612
+7,Chad,TCD,Children in Need,UNICEF,3100000,2020-11-17,https://reliefweb.int/node/3689020
+7,Chad,TCD,People in Food Crisis/Emergency (IPC phase 3+),Government of Chad,1276191,2021-03-29,https://reliefweb.int/node/3730789
+7,Chad,TCD,Children Acutely Malnourished,IPC,330633,2020-03-17,https://reliefweb.int/node/3567103
+7,Chad,TCD,IDPs,UNHCR,401511,2021-04-30,https://reliefweb.int/node/3735517
+7,Chad,TCD,New Displacements by Disasters (per year),IDMC,30000,2019-12-31,https://m.reliefweb.int/report/3622549
+8,Colombia,COL,People in Need,OCHA,6700000,2021-04-26,https://reliefweb.int/node/3733288
+8,Colombia,COL,People Targeted for Assistance,OCHA,1400000,2021-04-26,https://reliefweb.int/node/3733288
+8,Colombia,COL,Children in Need,OCHA,2100000,2019-01-15,https://m.reliefweb.int/report/2951159
+8,Colombia,COL,New Displacements by Disasters (per year),IDMC,35000,2019-12-31,https://reliefweb.int/node/3622549
+9,Democratic Republic of the Congo,COD,People in Need,OCHA,19600000,2021-01-29,https://reliefweb.int/node/3708758
+9,Democratic Republic of the Congo,COD,People Targeted for Assistance,OCHA,9600000,2021-01-29,https://reliefweb.int/node/3708758
+9,Democratic Republic of the Congo,COD,Children in Need,UNICEF,11500000,2020-12-14,https://reliefweb.int/node/3697475
+9,Democratic Republic of the Congo,COD,People in Food Crisis/Emergency (IPC phase 3+),IPC,27262321,2021-03-30,https://reliefweb.int/node/3725816
+9,Democratic Republic of the Congo,COD,IDPs,OCHA,5500000,2020-12-21,https://reliefweb.int/node/3698930
+9,Democratic Republic of the Congo,COD,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+9,Democratic Republic of the Congo,COD,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+9,Democratic Republic of the Congo,COD,New Displacements by Disasters (per year),IDMC,233000,2019-12-31,https://m.reliefweb.int/report/3622549
+10,Ethiopia,ETH,People in Need,Government of Ethiopia,21300000,2020-12-01,https://reliefweb.int/node/3692232
+10,Ethiopia,ETH,People Targeted for Assistance,Government of Ethiopia,16300000,2020-12-01,https://reliefweb.int/node/3692232
+10,Ethiopia,ETH,Children in Need,UNICEF,11700000,2020-12-14,https://reliefweb.int/node/3696686
+10,Ethiopia,ETH,People in Food Crisis/Emergency (IPC phase 3+),IPC,8609537,2020-12-10,https://reliefweb.int/node/3695911
+10,Ethiopia,ETH,IDPs,IOM,1959797,2021-01-31,https://reliefweb.int/node/3727708
+10,Ethiopia,ETH,New Displacements by Conflict (per year),IDMC,1052000,2019-12-31,https://m.reliefweb.int/report/3622549
+10,Ethiopia,ETH,New Displacements by Disasters (per year),IDMC,504000,2019-12-31,https://m.reliefweb.int/report/3622549
+11,Haiti,HTI,People in Need,OCHA,4400000,2021-03-09,https://reliefweb.int/node/3719873
+11,Haiti,HTI,People Targeted for Assistance,OCHA,1500000,2021-03-09,https://reliefweb.int/node/3719873
+11,Haiti,HTI,Children in Need,UNICEF,681500,2019-01-29,https://m.reliefweb.int/report/2970719
+11,Haiti,HTI,People in Food Crisis/Emergency (IPC phase 3+),IPC,3988968,2020-09-04,https://reliefweb.int/node/3667656
+11,Haiti,HTI,New Displacements by Disasters (per year),IDMC,1200,2019-12-31,https://m.reliefweb.int/report/3622549
+12,Iraq,IRQ,People in Need,OCHA,4100000,2021-03-09,https://reliefweb.int/node/3719933
+12,Iraq,IRQ,People Targeted for Assistance,OCHA,1500000,2021-03-09,https://reliefweb.int/node/3719933
+12,Iraq,IRQ,People in Acute Need,OCHA,2400000,2021-03-09,https://reliefweb.int/node/3719933
+12,Iraq,IRQ,Children in Need,UNICEF,2600000,2020-11-20,https://reliefweb.int/node/3690356
+12,Iraq,IRQ,IDPs,IOM,1205767,2021-02-28,https://reliefweb.int/node/3728507
+12,Iraq,IRQ,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+12,Iraq,IRQ,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+12,Iraq,IRQ,New Displacements by Disasters (per year),IDMC,37000,2019-12-31,https://m.reliefweb.int/report/3622549
+13,Kenya,KEN,Children in Need,UNICEF,12500000,2020-11-20,https://reliefweb.int/node/3690111
+13,Kenya,KEN,Children Acutely Malnourished,IPC,542000,2021-04-08,https://reliefweb.int/node/3728227
+13,Kenya,KEN,Pregnant or Lactating Women Acutely Malnourished,IPC,99000,2021-04-08,https://reliefweb.int/node/3728227
+13,Kenya,KEN,New Displacements by Disasters (per year),IDMC,74000,2019-12-31,https://reliefweb.int/node/3622549
+14,Lebanon,LBN,People in Need,Government of Lebanon,3200000,2021-03-12,https://reliefweb.int/node/3720882
+14,Lebanon,LBN,People Targeted for Assistance,Government of Lebanon,3000000,2021-03-12,https://reliefweb.int/node/3720882
+15,Libya,LBY,People in Need,OCHA,1300000,2021-02-03,https://reliefweb.int/node/3710138
+15,Libya,LBY,People Targeted for Assistance,OCHA,451000,2021-02-03,https://reliefweb.int/node/3710138
+15,Libya,LBY,Children in Need,UNICEF,348000,2020-11-20,https://reliefweb.int/node/3690108
+15,Libya,LBY,IDPs,IOM,278177,2020-12-31,https://reliefweb.int/node/3716394
+16,Mali,MLI,People in Need,OCHA,5900000,2021-02-22,https://reliefweb.int/node/3715854
+16,Mali,MLI,People Targeted for Assistance,OCHA,4700000,2021-02-22,https://reliefweb.int/node/3715854
+16,Mali,MLI,Children in Need,UNICEF,3500000,2020-12-14,https://reliefweb.int/node/3697476
+16,Mali,MLI,People in Food Crisis/Emergency (IPC phase 3+),OCHA,866990,2021-04-29,https://reliefweb.int/node/3734261
+16,Mali,MLI,IDPs,IOM,346864,2021-01-31,https://reliefweb.int/node/3718970
+16,Mali,MLI,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+16,Mali,MLI,New Displacements by Disasters (per year),IDMC,6600,2019-12-31,https://reliefweb.int/node/3622549
+17,Mozambique,MOZ,People in Need,OCHA,1300000,2020-12-01,https://reliefweb.int/node/3692232
+17,Mozambique,MOZ,People Targeted for Assistance,OCHA,1100000,2020-12-01,https://reliefweb.int/node/3692232
+17,Mozambique,MOZ,Children in Need,UNICEF,1300000,2019-09-30,https://m.reliefweb.int/report/3425728
+17,Mozambique,MOZ,People in Food Crisis/Emergency (IPC phase 3+),IPC,135350,2020-07-30,https://reliefweb.int/node/3657864
+17,Mozambique,MOZ,Children Acutely Malnourished,IPC,27747,2020-07-30,https://reliefweb.int/node/3657864
+17,Mozambique,MOZ,IDPs,IOM,83557,2019-09-30,https://displacement.iom.int/content/cdmoz
+17,Mozambique,MOZ,New Displacements by Disasters (per year),IDMC,506000,2019-12-31,https://reliefweb.int/node/3622549
+18,Myanmar,MMR,People in Need,OCHA,1000000,2021-01-27,https://reliefweb.int/node/3707750
+18,Myanmar,MMR,People Targeted for Assistance,OCHA,944000,2021-01-27,https://reliefweb.int/node/3707750
+18,Myanmar,MMR,Children in Need,UNICEF,455000,2020-11-20,https://reliefweb.int/node/3693720
+19,Niger,NER,People in Need,OCHA,3800000,2020-12-01,https://reliefweb.int/node/3692232
+19,Niger,NER,People Targeted for Assistance,OCHA,2200000,2020-12-01,https://reliefweb.int/node/3692232
+19,Niger,NER,Children in Need,UNICEF,2000000,2020-12-04,https://reliefweb.int/node/3694183
+19,Niger,NER,People in Food Crisis/Emergency (IPC phase 3+),IPC,1621213,2021-04-29,https://reliefweb.int/node/3734261
+19,Niger,NER,Children Acutely Malnourished,IPC,918360,2020-03-12,https://reliefweb.int/node/3562133
+19,Niger,NER,Refugees in Niger,UNHCR,237599,2021-02-28,https://r4sahel.info/en/situations/sahelcrisis/location/8717
+19,Niger,NER,IDPs,Government of Niger,300320,2021-02-28,https://r4sahel.info/en/situations/sahelcrisis/location/8695
+19,Niger,NER,New Displacements by Conflict (per year),IDMC,57000,2019-12-31,https://reliefweb.int/node/3622549
+19,Niger,NER,New Displacements by Disasters (per year),IDMC,121000,2019-12-31,https://reliefweb.int/node/3622549
+20,Nigeria,NGA,People in Need,OCHA,8700000,2021-03-16,https://reliefweb.int/node/3721876
+20,Nigeria,NGA,People Targeted for Assistance,OCHA,6400000,2021-03-16,https://reliefweb.int/node/3721876
+20,Nigeria,NGA,Children in Need,UNICEF,6500000,2020-12-14,https://reliefweb.int/node/3697479
+20,Nigeria,NGA,People in Food Crisis/Emergency (IPC phase 3+),FAO,9196122,2021-04-29,https://reliefweb.int/node/3734261
+20,Nigeria,NGA,IDPs,IOM,2150243,2020-12-31,https://reliefweb.int/node/3720605
+20,Nigeria,NGA,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+20,Nigeria,NGA,New Displacements by Disasters (per year),IDMC,157000,2019-12-31,https://reliefweb.int/node/3622549
+21,occupied Palestinian territory,PSE,People in Need,OCHA,2450000,2020-12-31,https://reliefweb.int/node/3703429
+21,occupied Palestinian territory,PSE,People Targeted for Assistance,OCHA,1800000,2020-12-31,https://reliefweb.int/node/3703429
+21,occupied Palestinian territory,PSE,Children in Need,UNICEF,1060000,2020-12-03,https://m.reliefweb.int/report/3426938
+21,occupied Palestinian territory,PSE,New Displacements by Disasters (per year),IDMC,0,2019-12-31,https://reliefweb.int/node/3622549
+22,Somalia,SOM,People in Need,OCHA,5900000,2021-02-15,https://reliefweb.int/node/3713512
+22,Somalia,SOM,People Targeted for Assistance,OCHA,4000000,2021-02-15,https://reliefweb.int/node/3713512
+22,Somalia,SOM,Children in Need,UNICEF,3900000,2020-12-14,https://reliefweb.int/node/3696994
+22,Somalia,SOM,People in Food Crisis/Emergency (IPC phase 3+),FSNAU,1600800,2021-02-04,https://reliefweb.int/node/3710257
+22,Somalia,SOM,IDPs,UNHCR,2967000,2021-03-31,https://reliefweb.int/node/3728893
+22,Somalia,SOM,Total Internal Displacements (per year),UNHCR,112000,2021-03-31,https://reliefweb.int/node/3728891
+22,Somalia,SOM,Total Internal Displacements (per month),UNHCR,18000,2021-03-31,https://reliefweb.int/node/3728891
+22,Somalia,SOM,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+22,Somalia,SOM,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+22,Somalia,SOM,New Displacements by Disasters (per year),IDMC,479000,2019-12-31,https://reliefweb.int/node/3622549
+23,South Sudan,SSD,People in Need,OCHA,8300000,2021-03-16,https://reliefweb.int/node/3721681
+23,South Sudan,SSD,People Targeted for Assistance,OCHA,6600000,2021-03-16,https://reliefweb.int/node/3721681
+23,South Sudan,SSD,Children in Need,UNICEF,4100000,2020-12-14,https://reliefweb.int/node/3696997
+23,South Sudan,SSD,People in Food Crisis/Emergency (IPC phase 3+),IPC,5820000,2020-12-29,https://reliefweb.int/node/3700880
+23,South Sudan,SSD,Pregnant or Lactating Acutely Malnourished Women,IPC,483382,2020-12-29,https://reliefweb.int/node/3700880
+23,South Sudan,SSD,IDPs,IOM,1620000,2021-02-28,https://reliefweb.int/node/3725160
+23,South Sudan,SSD,Refugees in South Sudan,UNHCR,317158,2021-03-31,https://reliefweb.int/node/3729477
+23,South Sudan,SSD,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+23,South Sudan,SSD,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+23,South Sudan,SSD,New Displacements by Disasters (per year),IDMC,294000,2019-12-31,https://reliefweb.int/node/3622549
+24,Sudan,SDN,People in Need,OCHA,13400000,2021-02-21,https://reliefweb.int/node/3715176
+24,Sudan,SDN,People Targeted for Assistance,OCHA,8900000,2021-02-21,https://reliefweb.int/node/3715176
+24,Sudan,SDN,Children in Need,UNICEF,5400000,2020-12-14,https://reliefweb.int/node/3697057
+24,Sudan,SDN,People in Food Crisis/Emergency (IPC Phase 3+),IPC,7097187,2020-11-18,https://reliefweb.int/node/3689134
+24,Sudan,SDN,IDPs,UNHCR,2550000,2021-03-31,https://reliefweb.int/node/3733262
+24,Sudan,SDN,New Displacements by Disasters (per year),IDMC,272000,2019-12-31,https://reliefweb.int/node/3622549
+25,Syria,SYR,People in Need,OCHA,11060000,2020-12-30,https://reliefweb.int/node/3701122
+25,Syria,SYR,People in Acute Need,OCHA,4650000,2020-12-30,https://reliefweb.int/node/3701122
+25,Syria,SYR,People Targeted for Assistance,OCHA,9800000,2020-12-30,https://reliefweb.int/node/3701122
+25,Syria,SYR,Children in Need,UNICEF,4800000,2020-12-03,https://reliefweb.int/node/3693854
+25,Syria,SYR,People in Food Crisis/Emergency (IPC phase 3+),WFP,12400000,2021-01-31,https://reliefweb.int/node/3712610
+25,Syria,SYR,IDPs,OCHA,6183919,2020-09-30,https://reliefweb.int/node/3687235
+25,Syria,SYR,KKA Incidents (Killed, Kidnapped and Arrested) against Aid Workers (per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+25,Syria,SYR,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+25,Syria,SYR,New Displacements by Disasters (per year),IDMC,17000,2019-12-31,https://reliefweb.int/node/3622549
+26,Ukraine,UKR,People in Need,OCHA,3400000,2021-02-15,https://reliefweb.int/node/3713506
+26,Ukraine,UKR,People Targeted for Assistance,OCHA,1900000,2021-02-15,https://reliefweb.int/node/3713506
+26,Ukraine,UKR,Children in Need,UNICEF,430000,2020-11-20,https://reliefweb.int/node/3693723
+27,Venezuela,VEN,People in Need,OCHA,7000000,2020-12-01,https://reliefweb.int/node/3692232
+27,Venezuela,VEN,People Targeted for Assistance,OCHA,4500000,2020-12-01,https://reliefweb.int/node/3692232
+27,Venezuela,VEN,Children in Need,UNICEF,3200000,2020-12-14,https://reliefweb.int/node/3697031/edit
+28,Yemen,YEM,People in Need,OCHA,20700000,2021-03-16,https://reliefweb.int/node/3721932
+28,Yemen,YEM,People Targeted for Assistance,OCHA,16000000,2021-03-16,https://reliefweb.int/node/3721932
+28,Yemen,YEM,People in Acute Need,OCHA,12100000,2021-02-21,https://reliefweb.int/node/3715186
+28,Yemen,YEM,Children in Need,UNICEF,12400000,2020-12-14,https://reliefweb.int/node/3697063
+28,Yemen,YEM,People in Food Crisis/Emergency (IPC phase 3+),IPC,13500000,2020-12-03,https://reliefweb.int/node/3693940
+28,Yemen,YEM,Aid Workers affected by KKA Incidents (Killed, Kidnapped and Arrested per year),Insecurity Insight,2021-03-09,https://reliefweb.int/node/3722215
+28,Yemen,YEM,New Displacements by Conflict (per year),IDMC,398000,2019-12-31,https://reliefweb.int/node/3622549
+28,Yemen,YEM,New Displacements by Disasters (per year),IDMC,31000,2019-12-31,https://reliefweb.int/node/3622549
+29,Zambia,ZMB,People in Need,OCHA,10100000,2020-12-09,https://reliefweb.int/node/3695695
+29,Zambia,ZMB,People Targeted for Assistance,OCHA,6200000,2020-12-09,https://reliefweb.int/node/3695695
+29,Zambia,ZMB,People in Food Crisis/Emergency (IPC phase 3+),IPC,2278098,2019-10-31,https://m.reliefweb.int/report/3252029
+29,Zambia,ZMB,New Displacements by Disasters (per year),IDMC,1300,2019-12-31,https://reliefweb.int/node/3622549
+30,Zimbabwe,ZWE,Total People in Need,OCHA,6800000,2020-12-01,https://reliefweb.int/node/3692232
+30,Zimbabwe,ZWE,Total People Targeted for Assistance,OCHA,4500000,2020-12-01,https://reliefweb.int/node/3692232
+30,Zimbabwe,ZWE,Children in Need,UNICEF,2600000,2019-12-03,https://m.reliefweb.int/report/3425728
+30,Zimbabwe,ZWE,People in Food Crisis/Emergency (IPC phase 3+),IPC,2605477,2020-11-27,https://reliefweb.int/node/3692235
+30,Zimbabwe,ZWE,New Displacements by Disasters (per year),IDMC,52000,2019-12-31,https://reliefweb.int/node/3622549

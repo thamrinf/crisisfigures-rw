@@ -1,0 +1,212 @@
+:root {
+  --colBorder: #6d778b;
+  --px-10: 0.625rem;
+  --px-11: 0.6875rem;
+  --px-12: 0.75rem;
+  --px-13: 0.8125rem;
+  --px-14: 0.875rem;
+  --px-15: 0.9375rem;
+  --px-16: 1rem;
+  --px-17: 1.0625rem;
+  --px-18: 1.125rem;
+  --px-19: 1.1875rem;
+  --px-20: 1.25rem;
+  --px-21: 1.3125rem;
+  --px-22: 1.375rem;
+  --px-23: 1.4375rem;
+  --px-24: 1.5rem;
+  --px-25: 1.5625rem;
+  --px-26: 1.625rem;
+  --px-27: 1.6875rem;
+  --px-28: 1.75rem;
+  --px-29: 1.8125rem;
+  --px-30: 1.875rem;
+  --px-31: 1.9375rem;
+  --px-32: 2rem;
+  --px-33: 2.0625rem;
+  --px-34: 2.125rem;
+}
+
+body {
+  /* font-family: 'Fira Sans', sans-serif !important; */
+  font-family: "Roboto", sans-serif;
+}
+
+#dtTable tbody tr td:nth-child(3),
+#dtTable tbody tr td:nth-child(5) {
+  background-color: #f7f7f7;
+}
+
+.double-underline {
+  position: relative;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+}
+
+.double-underline:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+
+
+.f-10px {
+  font-size: var(--px-10);
+}
+
+.f-11px {
+  font-size: var(--px-11);
+}
+
+.f-12px {
+  font-size: var(--px-12);
+}
+
+.f-14px {
+  font-size: var(--px-14);
+}
+
+.f-16px {
+  font-size: var(--px-16);
+}
+
+.f-18px {
+  font-size: var(--px-18);
+}
+
+.h-maps {
+  height: 500px;
+}
+
+.h-barchart {
+  height: 450px;
+}
+
+.leaflet-control-attribution.leaflet-control {
+  display: none;
+}
+
+#main-chart1,
+#main-chart2 {
+  height: 450px;
+  overflow-y: auto;
+}
+
+.middle-div {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.w-legend {
+  width: 150px;
+}
+
+.w-tooltip {
+  width: 200px;
+  white-space: normal;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.z-index-3001 {
+  z-index: 3001;
+}
+
+
+/* C3.JS */
+h3 {
+  font-family: 'Gotham-Bold', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  font-weight: normal;
+}
+
+.small {
+  color: #888;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+/*STYLES FOR C3.js CHARTS*/
+.c3-axis .tick line {
+  display: none;
+}
+
+/*y axis color to white*/
+.c3-axis-y path,
+.c3-axis-y line {
+  stroke: #FFFFFF;
+}
+
+/*x axis color to white*/
+.c3-axis-x path,
+.c3-axis-x line {
+  stroke: #888888;
+}
+
+.c3-grid line {
+  stroke: #eeeeee;
+  stroke-dasharray: 0;
+}
+
+/*x axis text*/
+.c3-axis-x text {
+  font-size: 12px;
+  fill: #888888;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+}
+
+/*y axis text*/
+.c3-axis-y text {
+  font-size: 12px;
+  fill: #888888;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+}
+
+/*direct labelling*/
+.c3-chart-text {
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  transform: translate(0, -2px);
+}
+
+/*change tooltip style*/
+.c3-tooltip th {
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  color: #888888;
+  border: none;
+}
+
+.c3-tooltip td {
+  border: none;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.c3-tooltip tr {
+  border: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #888888;
+}
