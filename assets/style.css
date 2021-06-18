@@ -97,6 +97,16 @@ body {
   overflow-y: auto;
 }
 
+.leaflet-popup-close-button{
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.mainMenu.active{
+  background-color: #007ce0;
+  color: #FFFFFF;
+}
+
 .middle-div {
   margin: 0;
   position: absolute;

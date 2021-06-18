@@ -3,100 +3,75 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HDX</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css"
-    />
-    <link href="assets/c3/c3.min.css" rel="stylesheet" />
-    <link href="assets/style.css" rel="stylesheet" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-right py-2 border">
-          <div class="d-inline-block border-right px-3 py-1">
-            LOGO RELIEFWEB
-          </div>
-          <div class="d-inline-block border-left px-3 py-1">LOGO HDX</div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HDX</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css" />
+  <link href="assets/c3/c3.min.css" rel="stylesheet" />
+  <link href="assets/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-right py-2 border">
+        <div class="d-inline-block border-right px-3 py-1">
+          LOGO RELIEFWEB
         </div>
-        <div class="col-12 border">
-          <div class="row">
-            <div class="col-2 mb-3 px-3 py-2">
-              CORE
-              <div class="form-group form-check mb-3">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="dashboard"
-                />
-                <label class="form-check-label" for="dashboard"
-                  >DASHBOARD</label
-                >
-              </div>
-
-              ADDONS
-              <div class="form-group form-check mb-1">
-                <input type="checkbox" class="form-check-input" id="chart" />
-                <label class="form-check-label" for="chart">CHART</label>
-              </div>
-              <div class="form-group form-check mb-1">
-                <input type="checkbox" class="form-check-input" id="tables" />
-                <label class="form-check-label" for="tables">TABLES</label>
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="map" />
-                <label class="form-check-label" for="map">MAP</label>
-              </div>
+        <div class="d-inline-block border-left px-3 py-1">LOGO HDX</div>
+      </div>
+      <div class="col-12 border">
+        <div class="row">
+          <div class="col-2 mb-3 px-3 py-2">
+            CORE
+            <div class="form-group mb-1 pl-3 mainMenu active px-1 py-1 menuDashboard" role="button">
+              <i class="fas fa-tachometer-alt"></i>
+              <label class="form-check-label" role="button" for="dashboard">DASHBOARD</label>
             </div>
-            <div class="col-10 border-left py-2">
-              <h4>RELIEFWEB CRISIS FIGURES DATA</h4>
-              <div class="w-100 p-2 border mb-3">DASHBOARD</div>
 
-              <div class="w-100 pt-2 border">
-                <div class="row mx-0 border-bottom pb-2">
-                  <div class="mb-0 col text-left">
-                    <div class="form-group form-check mb-0">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="mainMap"
-                      />
-                      <label class="form-check-label" for="mainMap">MAP</label>
-                    </div>
-                  </div>
-                  <div class="col text-right mb-0">
-                    <select class="allCountry"></select>
+            ADDONS
+            <div class="form-group mb-1 pl-3 mainMenu menuMaps px-1 py-1" role="button">
+              <i class="fas fa-globe"></i>
+              <label class="form-check-label" role="button" for="Map">MAP</label>
+            </div>
+            <div class="form-group mb-1 pl-3 mainMenu px-1 py-1" role="button">
+              <i class="far fa-chart-bar"></i>
+              <label class="form-check-label" role="button" for="Chart">CHART</label>
+            </div>
+            <div class="form-group mb-1 pl-3 mainMenu px-1 py-1" role="button">
+              <i class="fas fa-table"></i>
+              <label class="form-check-label" role="button" for="Table">TABLES</label>
+            </div>
+          </div>
+          <div class="col-10 border-left py-2">
+            <h4>RELIEFWEB CRISIS FIGURES DATA</h4>
+            <div class="w-100 p-2 border mb-3">DASHBOARD</div>
+
+            <div class="w-100 pt-2 border mainMap mainDiv">
+              <div class="row mx-0 border-bottom pb-2">
+                <div class="mb-0 col text-left">
+                  <div class="form-group mb-0">
+                    <i class="fas fa-globe"></i>
+                    <label class="form-check-label" for="mainMap">MAP</label>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col position-relative">
-                    <div id="main-map" class="w-100 h-maps"></div>
-                    <div
-                      class="
+                <div class="col text-right mb-0">
+                  <select class="allCountry"></select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col position-relative">
+                  <div id="main-map" class="w-100 h-maps"></div>
+                  <div class="
                         legend-maps
                         position-absolute
                         bottom-0
@@ -109,139 +84,70 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         px-2
                         rounded
                         w-legend
-                      "
-                    >
-                      <span class="f-14px double-underline mb-2">MAP</span
-                      >&nbsp;<span class="f-14px">LEGEND</span>
-                      <div class="f-12px">
-                        <!-- <div class="form-group form-check mb-0" role="button">
-                          <input
-                            type="checkbox"
-                            class="form-check-input mt-0"
-                            id="legend1"
-                          />
-                          <label class="form-check-label" for="legend1"
-                            >LEGEND 1</label
-                          >
-                        </div>
-                        <p class="d-none">xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p> -->
-                        <div class="d-block mb-1 pb-0">
-                            <div class="d-inline-block mr-2 mb-0 pb-0 align-middle" style="width: 20px;height: 20px;background-color: #F7DBD9;"></div> < 3M
-                        </div>
-                        <div class="d-block mb-1 pb-0">
-                            <div class="d-inline-block mr-2 mb-0 pb-0 align-middle" style="width: 20px;height: 20px;background-color: #F6BDB9;"></div> 3M - 5M
-                        </div>
-                        <div class="d-block mb-1 pb-0">
-                            <div class="d-inline-block mr-2 mb-0 pb-0 align-middle" style="width: 20px;height: 20px;background-color: #F5A09A;"></div> 5M - 10M
-                        </div>
-                        <div class="d-block mb-1 pb-0">
-                            <div class="d-inline-block mr-2 mb-0 pb-0 align-middle" style="width: 20px;height: 20px;background-color: #F4827A;"></div> 10M - 15M
-                        </div>
-                        <div class="d-block mb-1 pb-0">
-                            <div class="d-inline-block mr-2 mb-0 pb-0 align-middle" style="width: 20px;height: 20px;background-color: #F2645A;"></div> > 15M
-                        </div>
+                      ">
+                    <span class="f-14px double-underline mb-2">MAP</span>&nbsp;<span class="f-14px">LEGEND</span>
+                    <div class="f-12px">
+                      <div class="d-block mb-1 pb-0">
+                        <div class="d-inline-block mr-2 mb-0 pb-0 align-middle"
+                          style="width: 20px;height: 20px;background-color: #F7DBD9;"></div>
+                        &lt; 3M
+                      </div>
+                      <div class="d-block mb-1 pb-0">
+                        <div class="d-inline-block mr-2 mb-0 pb-0 align-middle"
+                          style="width: 20px;height: 20px;background-color: #F6BDB9;"></div> 3M - 5M
+                      </div>
+                      <div class="d-block mb-1 pb-0">
+                        <div class="d-inline-block mr-2 mb-0 pb-0 align-middle"
+                          style="width: 20px;height: 20px;background-color: #F5A09A;"></div> 5M - 10M
+                      </div>
+                      <div class="d-block mb-1 pb-0">
+                        <div class="d-inline-block mr-2 mb-0 pb-0 align-middle"
+                          style="width: 20px;height: 20px;background-color: #F4827A;"></div> 10M - 15M
+                      </div>
+                      <div class="d-block mb-1 pb-0">
+                        <div class="d-inline-block mr-2 mb-0 pb-0 align-middle"
+                          style="width: 20px;height: 20px;background-color: #F2645A;"></div> > 15M
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="detailContentFromMaps">
               <div class="w-100 pt-2 border mt-3">
                 <div class="row mx-0 border-bottom pb-2">
                   <div class="mb-0 col text-left">
-                    <div class="form-group form-check mb-0">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="mainChart"
-                      />
-                      <label class="form-check-label" for="mainChart"
-                        >CHART</label
-                      >
+                    <div class="form-group mb-0">
+                      <i class="far fa-chart-bar"></i>
+                      <label class="form-check-label" for="mainChart">CHART</label>
                     </div>
                   </div>
                 </div>
                 <div class="row mx-0 my-3">
-                  <div class="col-6">
-                    <div class="border">
-                      <div id="main-chart1" class="w-100 h-barchart">
-                        <div class="row mx-0 border-bottom py-2">
-                          <div class="mb-0 col text-left">
-                            <div class="form-group form-check mb-0">
-                              <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="chart1"
-                              />
-                              <label class="form-check-label" for="chart1"
-                                >BAR CHART</label
-                              >
-                            </div>
-                          </div>
-                          <div class="col text-right mb-0">
-                            <select
-                              class="selectChart1 w-100 overflow-hidden"
-                            ></select>
-                          </div>
-                        </div>
-                        <div id="barChart1" class="w-100 mt-3"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="border">
-                      <div id="main-chart2" class="w-100 h-barchart">
-                        <div class="row mx-0 border-bottom py-2">
-                          <div class="mb-0 col text-left">
-                            <div class="form-group form-check mb-0">
-                              <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="chart2"
-                              />
-                              <label class="form-check-label" for="chart2"
-                                >BAR CHART</label
-                              >
-                            </div>
-                          </div>
-                          <div class="col text-right mb-0">
-                            <select
-                              class="selectChart2 w-100 overflow-hidden"
-                            ></select>
-                          </div>
-                        </div>
-                        <div id="barChart2" class="w-100 mt-3"></div>
-                      </div>
-                    </div>
-                  </div>
+                  <div id="barChartDetail" class="w-100 my-3 px-4"></div>
                 </div>
               </div>
-
               <div class="w-100 pt-2 border mt-3">
                 <div class="row mx-0 border-bottom pb-2">
                   <div class="mb-0 col text-left">
-                    <div class="form-group form-check mb-0">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="mainTable"
-                      />
-                      <label class="form-check-label" for="mainTable"
-                        >DATA TABLE</label
-                      >
+                    <div class="form-group mb-0">
+                      <i class="far fa-chart-bar"></i>
+                      <label class="form-check-label" for="mainChart">Data Table</label>
                     </div>
                   </div>
                 </div>
-                <div class="row mx-0">
-                  <div id="main-table" class="w-100">
-                    <table id="dtTable" class="table table-bordered">
+                <div class="row mx-0 my-3">
+                  <div id="dataTableDetail" class="w-100">
+                    <table id="dtTableDetail" class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">APPEALS</th>
-                          <th scope="col">TYPE</th>
-                          <th scope="col">PEOPLE IN NEED</th>
-                          <th scope="col">PEOPLE TARGETED</th>
-                          <th scope="col">REQUIRMENT</th>
+                          <th scope="col">CRISIS NAME</th>
+                          <th scope="col">CRISIS ISO3</th>
+                          <th scope="col">FIGURE NAME</th>
+                          <th scope="col">FIGURE SOURCE</th>
+                          <th scope="col">FIGURE VALUE</th>
+                          <th scope="col">FIGURE DATE</th>
                           <th scope="col">LINK</th>
                         </tr>
                       </thead>
@@ -251,32 +157,104 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
               </div>
             </div>
+
+            <div class="w-100 pt-2 border mt-3 mainChart mainDiv">
+              <div class="row mx-0 border-bottom pb-2">
+                <div class="mb-0 col text-left">
+                  <div class="form-group mb-0">
+                    <i class="far fa-chart-bar"></i>
+                    <label class="form-check-label" for="mainChart">CHART</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mx-0 my-3">
+                <div class="col-6">
+                  <div class="border">
+                    <div id="main-chart1" class="w-100 h-barchart">
+                      <div class="row mx-0 border-bottom py-2">
+                        <div class="mb-0 col text-left">
+                          <div class="form-group mb-0">
+                            <label class="form-check-label" for="chart1">BAR CHART</label>
+                          </div>
+                        </div>
+                        <div class="col text-right mb-0">
+                          <select class="selectChart1 w-100 overflow-hidden"></select>
+                        </div>
+                      </div>
+                      <div id="barChart1" class="w-100 mt-3"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="border">
+                    <div id="main-chart2" class="w-100 h-barchart">
+                      <div class="row mx-0 border-bottom py-2">
+                        <div class="mb-0 col text-left">
+                          <div class="form-group mb-0">
+                            <label class="form-check-label" for="chart2">BAR CHART</label>
+                          </div>
+                        </div>
+                        <div class="col text-right mb-0">
+                          <select class="selectChart2 w-100 overflow-hidden"></select>
+                        </div>
+                      </div>
+                      <div id="barChart2" class="w-100 mt-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-100 pt-2 border mt-3 mainTable mainDiv">
+              <div class="row mx-0 border-bottom pb-2">
+                <div class="mb-0 col text-left">
+                  <div class="form-group mb-0">
+                    <i class="fas fa-table"></i>
+                    <label class="form-check-label" for="mainTable">DATA TABLE</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mx-0">
+                <div id="main-table" class="w-100">
+                  <table id="dtTable" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">APPEALS</th>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">PEOPLE IN NEED</th>
+                        <th scope="col">PEOPLE TARGETED</th>
+                        <th scope="col">REQUIRMENT</th>
+                        <th scope="col">LINK</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <svg class="test"></svg>
+  <svg class="test"></svg>
 
-    <footer>
-      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.min.js"></script> -->
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-      <script src="https://unpkg.com/@mapbox/leaflet-pip@1.1.0/leaflet-pip.js"></script>
-      <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
-      <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"
-      ></script>
-      <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"
-      ></script>
-      <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-      <script src="assets/c3/c3.min.js"></script>
-      <script type="text/javascript" src="assets/script.js"></script>
-    </footer>
-  </body>
+  <footer>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.min.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@mapbox/leaflet-pip@1.1.0/leaflet-pip.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="assets/c3/c3.min.js"></script>
+    <script type="text/javascript" src="assets/script.js"></script>
+  </footer>
+</body>
+
 </html>
