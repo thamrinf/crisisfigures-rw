@@ -479,6 +479,7 @@ async function init() {
 		// for table
 		let tmpTotalPeopleInNeed = 0;
 		let tmpPeopleTargeted = 0;
+		let maxValue = 0;
 		dt.forEach((val, idx) => {
 			if (val.figure_name == "People in Need" || val.figure_name == "Total People in Need") {
 				if (tmpTotalPeopleInNeed < parseInt(val.figure_value)) {
@@ -507,6 +508,7 @@ async function init() {
 
 			dataDetailMapsForTable[val.crisis_index].push(obj);
 			dataDetailMapsForTable[val.crisis_index]["maxValue"] = parseInt(dataDetailMapsForTable[val.crisis_index]["maxValue"]) > parseInt(val.figure_value) ? parseInt(dataDetailMapsForTable[val.crisis_index]["maxValue"]) : parseInt(val.figure_value);
+			maxValue = maxValue < parseInt(val.figure_value) ? parseInt(val.figure_value) : maxValue;
 		});
 
 		dt.forEach((val, idx) => {
@@ -518,7 +520,7 @@ async function init() {
 				tmpObj.target = convertToInternationalCurrencySystem(tmpObj.target) + "<br /><div data-value='" + tmpObj.target + "' data-max='" + tmpPeopleTargeted + "' class='target" + tmpIso3 + "'></div>";
 				tmpObj.requirment = convertToInternationalCurrencySystem(tmpObj.requirment) + "<br /><div class='requirment" + tmpIso3 + "'></div>";
 
-				dataForTable.push(tmpObj);
+				// dataForTable.push(tmpObj);
 				dataCountry.push(tmpCrisisName);
 				// dataCountry[tmpCrisisIndex] = tmpCrisisName;
 				tmpCountry.push(tmpIso3);
@@ -539,7 +541,7 @@ async function init() {
 
 			tmpObj.appeals = val.crisis_name;
 
-			tmpObj.type = "HRP";
+			tmpObj.type = tmpIso3;
 			if (tmpObj.need == "") {
 				tmpObj.need = 0;
 			}
@@ -605,18 +607,28 @@ async function init() {
 				// tmpObj.target = convertToInternationalCurrencySystem(tmpObj.target);
 				// tmpObj.requirment = convertToInternationalCurrencySystem(tmpObj.requirment);
 
-				// dataForTable.push(tmpObj);
-
-
 				tmpObj.need = convertToInternationalCurrencySystem(tmpObj.need) + "<br /><div data-value='" + tmpObj.need + "' data-max='" + tmpTotalPeopleInNeed + "' class='need" + tmpIso3 + "'></div>";
 				tmpObj.target = convertToInternationalCurrencySystem(tmpObj.target) + "<br /><div data-value='" + tmpObj.target + "' data-max='" + tmpPeopleTargeted + "' class='target" + tmpIso3 + "'></div>";
 				tmpObj.requirment = convertToInternationalCurrencySystem(tmpObj.requirment) + "<br /><div class='requirment" + tmpIso3 + "'></div>";
 
-				dataForTable.push(tmpObj);
+				// dataForTable.push(tmpObj);
 				dataCountry.push(tmpCrisisName);
 				// dataCountry[tmpCrisisIndex] = tmpCrisisName;
 				tmpCountry.push(tmpIso3);
 			}
+
+			let obj = {};
+			obj.crisis_index = val.crisis_index;
+			obj.crisis_name = val.crisis_name;
+			obj.crisis_iso3 = val.crisis_iso3;
+			obj.figure_name = val.figure_name;
+			obj.figure_source = val.figure_source;
+			obj.figure_value = convertToInternationalCurrencySystem(parseInt(val.figure_value)) + "<br /><div data-value='" + parseInt(val.figure_value) + "' data-max='" + maxValue + "' data-cls='.figureValueMain" + x + "' class='figureValueMain" + x + " figureValueMain'></div>";
+			obj.figure_value2 = parseInt(val.figure_value);
+			obj.figure_date = val.figure_date;
+			obj.figure_url = "<a href='" + val.figure_url + "' target='_blank'>LINK</a><br />";
+			dataForTable.push(obj);
+
 			x++;
 		});
 
@@ -698,34 +710,33 @@ function createTable(idDiv, fixData, dataColumns, type = "default") {
 			"fnDrawCallback": function (oSettings) {
 				// console.log(oSettings);
 				if (type == "default") {
-					let start = (oSettings.iDraw * 10) - 10;
-					let end = oSettings.iDraw * 10;
-
-					for (start; start < end; start++) {
-						$(".need" + tmpCountry[start] + " svg").remove();
-						$(".need" + tmpCountry[start]).append("<svg></svg>");
-						let value = $(".need" + tmpCountry[start]).data("value");
-						let max = $(".need" + tmpCountry[start]).data("max");
-						createBar('.need' + tmpCountry[start], value, max, "#e65454");
-
-						$(".target" + tmpCountry[start] + " svg").remove();
-						$(".target" + tmpCountry[start]).append("<svg></svg>");
-						let value2 = $(".target" + tmpCountry[start]).data("value");
-						let max2 = $(".target" + tmpCountry[start]).data("max");
-						createBar('.target' + tmpCountry[start], value2, max2, "#689ece");
-					}
+					$(".figureValueMain").each(function () {
+						$(this).find("svg").remove();
+						$(this).append("<svg></svg>");
+						let value2 = $(this).data("value");
+						let max2 = $(this).data("max");
+						let dataCls = $(this).data("cls");
+						createBar(dataCls, value2, max2, "#689ece");
+					});
 				} else {
-					let start = (oSettings.iDraw * 10) - 10;
-					let end = oSettings.iDraw * 10;
-					for (start; start < end; start++) {
-						$(".figureValue" + start + " svg").remove();
-						$(".figureValue" + start).append("<svg></svg>");
-						let value2 = $(".figureValue" + start).data("value");
-						let max2 = $(".figureValue" + start).data("max");
-						createBar('.figureValue' + start, value2, max2, "#689ece");
-					}
+					$(".figureValue").each(function () {
+						$(this).find("svg").remove();
+						$(this).append("<svg></svg>");
+						let value2 = $(this).data("value");
+						let max2 = $(this).data("max");
+						let dataCls = $(this).data("cls");
+						createBar(dataCls, value2, max2, "#689ece");
+					});
 				}
-			}
+			},
+			'columnDefs': [
+				{ 'orderData': [7], 'targets': [4] },
+				{
+					'targets': [7],
+					'visible': false,
+					'searchable': false
+				},
+			],
 		}).on('page.dt', function () {
 			// let info = dtTable.page.info();
 			// console.log(info.page+1);
@@ -737,48 +748,15 @@ function createTable(idDiv, fixData, dataColumns, type = "default") {
 $(document).ready(function () {
 	init();
 	createTable('#dtTable', dataForTable, [
-		{ data: "appeals" },
-		{ data: "type" },
-		{ data: "need" },
-		{ data: "target" },
-		{ data: "requirment" },
-		{ data: "link" },
+		{ data: "crisis_name" },
+		{ data: "crisis_iso3" },
+		{ data: "figure_name" },
+		{ data: "figure_source" },
+		{ data: "figure_value" },
+		{ data: "figure_date" },
+		{ data: "figure_url" },
+		{ data: "figure_value2" },
 	], "default");
-	// setTimeout(() => {
-	// 	dtTable = $('#dtTable').DataTable({
-	// 		data: dataForTable,
-	// 		"bLengthChange": false,
-	// 		columns: [
-	// 			{ data: "appeals" },
-	// 			{ data: "type" },
-	// 			{ data: "need" },
-	// 			{ data: "target" },
-	// 			{ data: "requirment" },
-	// 			{ data: "link" },
-	// 		],
-	// 		"fnDrawCallback": function (oSettings) {
-	// 			// console.log(oSettings);
-	// 			let start = (oSettings.iDraw * 10) - 10;
-	// 			let end = oSettings.iDraw * 10;
-	// 			for (start; start < end; start++) {
-	// 				$(".need" + tmpCountry[start] + " svg").remove();
-	// 				$(".need" + tmpCountry[start]).append("<svg></svg>");
-	// 				let value = $(".need" + tmpCountry[start]).data("value");
-	// 				let max = $(".need" + tmpCountry[start]).data("max");
-	// 				createBar('.need' + tmpCountry[start], value, max, "#e65454");
-
-	// 				$(".target" + tmpCountry[start] + " svg").remove();
-	// 				$(".target" + tmpCountry[start]).append("<svg></svg>");
-	// 				let value2 = $(".target" + tmpCountry[start]).data("value");
-	// 				let max2 = $(".target" + tmpCountry[start]).data("max");
-	// 				createBar('.target' + tmpCountry[start], value2, max2, "#689ece");
-	// 			}
-	// 		}
-	// 	}).on('page.dt', function () {
-	// 		// let info = dtTable.page.info();
-	// 		// console.log(info.page+1);
-	// 	});
-	// }, 2000);
 
 	$("#main-chart1 select").on("change", function () {
 		let id = $(this).val();
@@ -824,7 +802,8 @@ $(document).ready(function () {
 					let obj = {};
 					obj = val;
 					obj.link = "<a href='" + val.figure_url + "' target='_blank'>LINK</a><br />";
-					obj.figureValue = convertToInternationalCurrencySystem(parseInt(val.figure_value)) + "<br /><div data-value='" + parseInt(val.figure_value) + "' data-max='" + dataDetailMapsForTable[getCrisisIndex]["maxValue"] + "' class='figureValue" + x + "'></div>";
+					obj.figureValue = convertToInternationalCurrencySystem(parseInt(val.figure_value)) + "<br /><div data-value='" + parseInt(val.figure_value) + "' data-max='" + dataDetailMapsForTable[getCrisisIndex]["maxValue"] + "' data-cls='.figureValue" + x + "' class='figureValue" + x + " figureValue'></div>";
+					obj.figureValue2 = parseInt(val.figure_value);
 
 					dataForTableDetail.push(obj);
 					x++;
@@ -840,6 +819,7 @@ $(document).ready(function () {
 					{ data: "figureValue" },
 					{ data: "figure_date" },
 					{ data: "link" },
+					{ data: "figureValue2" },
 				], "detail");
 
 				$(".detailContentFromMaps").show();
