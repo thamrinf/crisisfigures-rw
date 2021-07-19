@@ -32,6 +32,30 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.apexcharts-xaxis{
+  display: none;
+}
+
+.bg-005272{
+  background: #005272;
+}
+
+.bg-f4f5f7{
+  background: #f4f5f7;
+}
+
+.bg-035974{
+  background: #035974;
+}
+
+.cursor-default{
+  cursor: default !important;
+}
+
+.dis-none{
+  display: none;
+}
+
 #dtTable tbody tr td:nth-child(3),
 #dtTable tbody tr td:nth-child(5) {
   background-color: #f7f7f7;
@@ -79,23 +103,29 @@ body {
   font-size: var(--px-18);
 }
 
+.figureNameArea{
+  max-height: 900px;
+  overflow-y: scroll;
+}
+
 .h-maps {
   height: 500px;
 }
 
 .h-barchart {
-  height: 450px;
+  height: 400px;
+  overflow-y: auto;
 }
 
 .leaflet-control-attribution.leaflet-control {
   display: none;
 }
 
-#main-chart1,
+/* #main-chart1,
 #main-chart2 {
   height: 450px;
   overflow-y: auto;
-}
+} */
 
 .leaflet-popup-close-button{
   margin-right: 8px;
@@ -113,6 +143,26 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.middleContentViz{
+  transform: translate(-40%, -40%);
+}
+
+.text-628ea2{
+  color: #628ea2;
+}
+
+.text-005272{
+  color: #005272;
+}
+
+.text-3c3f48{
+  color: #3c3f48;
+}
+
+.text-616568{
+  color: #616568;
 }
 
 .bottom-0 {

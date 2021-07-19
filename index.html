@@ -16,6 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.19.0/apexcharts.min.css" />
   <link href="assets/c3/c3.min.css" rel="stylesheet" />
   <link href="assets/style.css" rel="stylesheet" />
 </head>
@@ -43,7 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <i class="fas fa-globe"></i>
               <label class="form-check-label" role="button" for="Map">MAP</label>
             </div>
-            <div class="form-group mb-1 pl-3 mainMenu px-1 py-1" role="button">
+            <div class="form-group mb-1 pl-3 mainMenu menu px-1 py-1" role="button">
               <i class="far fa-chart-bar"></i>
               <label class="form-check-label" role="button" for="Chart">CHART</label>
             </div>
@@ -114,7 +115,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
             </div>
 
-            <div class="detailContentFromMaps">
+
+            <div class="w-100 pt-2 mt-3 border mainMap mainDiv">
+              <div class="row mx-0 border-bottom py-2">
+                <div class="mb-0 col text-left">
+                  <div class="form-group mb-0">
+                    <i class="fas fa-chart-line"></i>
+                    <label class="form-check-label" for="mainFigures">KEY FIGURES</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FIGURES AREA -->
+              <div class="row my-3 mx-0 figureNameArea">
+              </div>
+            </div>
+
+
+
+            <div class="detailContentFromMaps dis-none">
               <div class="w-100 pt-2 border mt-3">
                 <div class="row mx-0 border-bottom pb-2">
                   <div class="mb-0 col text-left">
@@ -133,7 +152,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <div class="mb-0 col text-left">
                     <div class="form-group mb-0">
                       <i class="far fa-chart-bar"></i>
-                      <label class="form-check-label" for="mainChart">Data Table</label>
+                      <label class="form-check-label" for="mainTable">DATA TABLE</label>
                     </div>
                   </div>
                 </div>
@@ -171,7 +190,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="row mx-0 my-3">
                 <div class="col-6">
                   <div class="border">
-                    <div id="main-chart1" class="w-100 h-barchart">
+                    <div id="main-chart1" class="w-100">
                       <div class="row mx-0 border-bottom py-2">
                         <div class="mb-0 col text-left">
                           <div class="form-group mb-0">
@@ -182,13 +201,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                           <select class="selectChart1 w-100 overflow-hidden"></select>
                         </div>
                       </div>
-                      <div id="barChart1" class="w-100 mt-3"></div>
+                      <div class="h-barchart">
+                        <div id="barChart1" class="w-100 mt-3"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="border">
-                    <div id="main-chart2" class="w-100 h-barchart">
+                    <div id="main-chart2" class="w-100">
                       <div class="row mx-0 border-bottom py-2">
                         <div class="mb-0 col text-left">
                           <div class="form-group mb-0">
@@ -199,7 +220,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                           <select class="selectChart2 w-100 overflow-hidden"></select>
                         </div>
                       </div>
-                      <div id="barChart2" class="w-100 mt-3"></div>
+                      <div class="h-barchart">
+                        <div id="barChart2" class="w-100 mt-3"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -220,12 +243,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <table id="dtTable" class="table table-bordered">
                     <thead>
                       <tr>
-                        <!-- <th scope="col">APPEALS</th>
-                        <th scope="col">TYPE</th>
-                        <th scope="col">PEOPLE IN NEED</th>
-                        <th scope="col">PEOPLE TARGETED</th>
-                        <th scope="col">REQUIRMENT</th>
-                        <th scope="col">LINK</th> -->
                         <th scope="col">CRISIS NAME</th>
                         <th scope="col">CRISIS ISO3</th>
                         <th scope="col">FIGURE NAME</th>
@@ -262,6 +279,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
     <script src="assets/c3/c3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.19.0/apexcharts.min.js"></script>
     <script type="text/javascript" src="assets/script.js"></script>
   </footer>
 </body>

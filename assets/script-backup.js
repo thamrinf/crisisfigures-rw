@@ -1,7 +1,6 @@
 "use strict";
 
 let _T_DATA;
-let _T_DATA_VISUALIZATION;
 let _GEO_WORLD = [];
 let _geojson_layer = [];
 let baseColor = ["#E84D6B", "#98AAD0", "#FAE173", "#DA625D", "#336778"];
@@ -20,13 +19,7 @@ let tmpArrDataDetailMaps = [];
 let dataCountry = [];
 let tmpCountry = [];
 let arrDataTables = [];
-
-let tmpDataTitleSame = [];
-let tmpDataForVisualization = [];
-let tmpDataForVisualizationDetail = [];
-let changeMaps = true;
-
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let dataGroup = [];
 
 // SET INTIAL MAP
 const InitMap = () => {
@@ -374,11 +367,6 @@ function round(value, decimals) {
 // cek integer atau bukan
 function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
-// check is float
-function isFloat(n) {
-	return Number(n) === n && n % 1 !== 0;
-}
-
 // convert ke currency
 function convertToInternationalCurrencySystem(labelValue) {
 
@@ -399,25 +387,34 @@ function convertToInternationalCurrencySystem(labelValue) {
 
 }
 
-function numberWithCommas(x) {
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 // bar chart supaya dinamis
 function changeBarChart(idxComboBox, idChart) {
-	let country = (barChart[dataComboBox[parseInt(idxComboBox)]]["crisis_name"].substr(0, barChart[dataComboBox[parseInt(idxComboBox)]]["crisis_name"].length - 1)).split(";");
-	let data = (barChart[dataComboBox[parseInt(idxComboBox)]]["figure_value"].substr(0, barChart[dataComboBox[parseInt(idxComboBox)]]["figure_value"].length - 1)).split(";");
-	let dataConvert = data.map(function (x) {
-		return parseInt(x, 10);
-	});
-
+	let fName = dataComboBox[parseInt(idxComboBox)];
 	let tmpArr = [];
-	country.forEach((val, idx) => {
-		let tmpObj = {};
-		tmpObj.crisis_name = val;
-		tmpObj.figure_value = dataConvert[idx];
-		tmpArr.push(tmpObj);
+	dataGroup.forEach((val, idx) => {
+		if (val[fName] !== undefined) {
+			let tmpObj = {};
+			tmpObj.crisis_name = val[fName].crisis_name;
+			tmpObj.figure_value = val[fName].figure_value;
+			tmpArr.push(tmpObj);
+		}
 	});
+	console.log(tmpArr);
+
+
+	// let country = (barChart[dataComboBox[parseInt(idxComboBox)]]["crisis_name"].substr(0, barChart[dataComboBox[parseInt(idxComboBox)]]["crisis_name"].length - 1)).split(";");
+	// let data = (barChart[dataComboBox[parseInt(idxComboBox)]]["figure_value"].substr(0, barChart[dataComboBox[parseInt(idxComboBox)]]["figure_value"].length - 1)).split(";");
+	// let dataConvert = data.map(function (x) {
+	// 	return parseInt(x, 10);
+	// });
+
+
+	// country.forEach((val, idx) => {
+	// 	let tmpObj = {};
+	// 	tmpObj.crisis_name = val;
+	// 	tmpObj.figure_value = dataConvert[idx];
+	// 	tmpArr.push(tmpObj);
+	// });
 
 	tmpArr.sort(function (a, b) {
 		return b.figure_value - a.figure_value;
@@ -480,238 +477,6 @@ function createBar(cls, value, totalValue, colorHex) {
 	return svg.node();
 }
 
-function GetFormattedDate(dataDate) {
-	var current_datetime = new Date(dataDate);
-	var month = months[current_datetime.getMonth()];
-	var day = current_datetime.getDate();
-	var year = current_datetime.getFullYear();
-	return day + " " + month + " " + year;
-}
-
-function sortData(data) {
-	let tmpObj = {};
-	let tmpValue = 0;
-	if (data.length > 0) {
-		data.sort(function (a, b) {
-			return new Date(a.figure_date) - new Date(b.figure_date);
-		});
-
-		let tmpSource = [];
-		let newData = [];
-
-		data.forEach((val, idx) => {
-			tmpValue += val.figure_value;
-			if (tmpSource.includes(val.figure_source) == false) {
-				tmpSource.push(val.figure_source);
-			}
-
-			let checkDate = newData.find(o => o.figure_date == val.figure_date);
-			if (checkDate === undefined) {
-				newData.push(val);
-			} else {
-				let getIdx = newData.findIndex(o => o.figure_date == val.figure_date);
-				let getDataExist = newData[getIdx];
-
-				let objData = {};
-				objData.crisis_index = getDataExist.crisis_index == val.crisis_index ? getDataExist.crisis_index : getDataExist.crisis_index + ";" + val.crisis_index;
-				objData.crisis_name = getDataExist.crisis_name == val.crisis_name ? getDataExist.crisis_name : getDataExist.crisis_name + ";" + val.crisis_name;
-				objData.crisis_iso3 = getDataExist.crisis_iso3 == val.crisis_iso3 ? getDataExist.crisis_iso3 : getDataExist.crisis_iso3 + ";" + val.crisis_iso3;
-				objData.figure_name = getDataExist.figure_name == val.figure_name ? getDataExist.figure_name : getDataExist.figure_name + ";" + val.figure_name;
-				objData.figure_source = getDataExist.figure_source == val.figure_source ? getDataExist.figure_source : getDataExist.figure_source + ";" + val.figure_source;
-				objData.figure_value = parseInt(getDataExist.figure_value) + parseInt(val.figure_value);
-				objData.figure_date = getDataExist.figure_date;
-				objData.figure_url = getDataExist.figure_url == val.figure_url ? getDataExist.figure_url : getDataExist.figure_url + ";" + val.figure_url;
-
-				newData[getIdx] = objData;
-			}
-		});
-
-
-		let tmpLastFigureValue = newData[newData.length - 1].figure_value;
-		let tmpLastFigureValue2 = newData[newData.length - 2] !== undefined ? newData[newData.length - 2].figure_value : newData[newData.length - 1].figure_value;
-		let tmpIncreaseDecrease = tmpLastFigureValue2 - tmpLastFigureValue;
-		let tmpTextIncDec = tmpLastFigureValue - tmpLastFigureValue2 < 0 ? "decrease" : (tmpLastFigureValue - tmpLastFigureValue2 > 0 ? "increase" : "");
-		tmpIncreaseDecrease = (tmpIncreaseDecrease == 0) ? tmpLastFigureValue2 * 100 : (tmpLastFigureValue2 == 0) ? tmpIncreaseDecrease * 100 : (tmpIncreaseDecrease / tmpLastFigureValue2) * 100;
-
-		tmpObj.since = GetFormattedDate(newData[0].figure_date);
-		tmpObj.updated = GetFormattedDate(newData[newData.length - 1].figure_date);
-		tmpObj.source = tmpSource;
-		tmpObj.sumValue = numberWithCommas(tmpValue);
-		tmpObj.incDecPercent = (isFloat(tmpIncreaseDecrease) ? (tmpIncreaseDecrease.toFixed(2)).toString().replace("-", "") : tmpIncreaseDecrease.toString().replace("-", ""));
-		tmpObj.incDecText = tmpTextIncDec;
-		tmpObj.dataViz = newData;
-		tmpObj.status = "success";
-	} else {
-		tmpObj.status = "error - no data";
-	}
-	return tmpObj;
-}
-
-function createLineChart(dataViz) {
-	let x = 0;
-	dataViz.forEach((val, idx) => {
-		let options = {
-			series: [{
-				name: "Value",
-				data: val.seriesData
-			}],
-			chart: {
-				height: "auto",
-				width: '100%',
-				type: 'line',
-				zoom: {
-					enabled: true
-				},
-				toolbar: {
-					show: true
-				}
-			},
-			dataLabels: {
-				enabled: false
-			},
-			stroke: {
-				curve: 'straight',
-				width: 1.5,
-				dashArray: 0,
-				colors: "#a0a0a0",
-			},
-			title: {
-				enabled: false
-			},
-			tooltip: {
-				enabled: true,
-				x: {
-					show: true,
-					format: 'dd MMM yyyy',
-				},
-				marker: {
-					show: false,
-				},
-			},
-			grid: {
-				show: false
-			},
-			xaxis: {
-				categories: val.categories,
-				labels: {
-					show: false
-				},
-				type: "datetime",
-				axisTicks: {
-					show: false
-				},
-				tooltip: {
-					enabled: false,
-				},
-			},
-			yaxis: {
-				show: false,
-				labels: {
-					formatter: function (value) {
-						return numberWithCommas(value);
-					}
-				},
-			},
-			markers: {
-				size: 0,
-				colors: undefined,
-				strokeWidth: 2,
-				strokeOpacity: 0.9,
-				strokeDashArray: 0,
-				fillOpacity: 1,
-				discrete: [],
-				shape: "circle",
-				radius: 2,
-				offsetX: 0,
-				offsetY: 0,
-				onClick: undefined,
-				onDblClick: undefined,
-				showNullDataPoints: true,
-				hover: {
-					size: undefined,
-					sizeOffset: 5
-				}
-			}
-		};
-
-		var chart = new ApexCharts(document.querySelector(".lineChart" + x), options);
-		chart.render();
-		x++;
-
-	});
-}
-
-
-function createFiguresArea(area,data) {
-	let createDiv = "";
-	let x = 0;
-	$(".figureNameArea div").remove();
-
-	let tmpArrViz = [];
-	data.forEach((val, idx) => {
-		let draw = false;
-		let AllowFigname = ["People in Need", "People Targeted for Assistance", "People in Acute Need", "Children in Need", "People in Food Crisis/Emergency (IPC phase 3+)","Acutely Malnourished Children"];
-		
-		if(area == 'world' && AllowFigname.includes(val.figure_name)  ){
-			draw = true;
-		}else if(area == "country"){
-			draw = true;
-		}
-
-		if(draw){
-			let dataSort = sortData(val.data);
-
-			if (dataSort.status == "success") {
-				createDiv += '<div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">';
-				createDiv += '	<div class="border p-2 h-100">';
-				createDiv += '		<span class="titleFigures text-628ea2 f-16px font-weight-bold">' + val.figure_name + '</span>';
-				createDiv += '		<div class="row mt-3">';
-				createDiv += '			<div class="col-12 col-sm-5">';
-				createDiv += '				<div class="w-100 middleContentViz middle-div">';
-				createDiv += '					<span class="font-weight-bold f-18px text-005272 sumValue d-block mb-2">' + dataSort.sumValue + '</span>';
-				createDiv += '					<span class="text-secondary f-12px d-block increaseDecrease">' + dataSort.incDecPercent + '% ' + dataSort.incDecText + '</span>';
-				createDiv += '					<span class="text-secondary f-12px d-block textSince">since ' + dataSort.since + '</span>';
-				createDiv += '				</div>';
-				createDiv += '			</div>';
-				createDiv += '			<div class="col-12 col-sm-7 px-1 mx-0 w-100 text-center vizLine lineChart' + x + '">';
-				createDiv += '			</div>';
-				createDiv += '		</div>';
-				createDiv += '		<div class="row mt-3">';
-				createDiv += '			<div class="col-12 col-sm-6 text-left">';
-				createDiv += '				<span class="f-12px btn btn-sm rounded bg-f4f5f7 text-616568 py-0 px-1 textUpdated">Updated ' + dataSort.updated + '</span>';
-				createDiv += '			</div>';
-				createDiv += '			<div class="col-12 col-sm-6">';
-				(dataSort.source).forEach((val2, idx2) => {
-					createDiv += '				<span class="text-white float-right f-12px cursor-default btn btn-sm rounded bg-035974 py-0 px-1 fSource d-inline-block mr-1 mb-1">' + val2 + '</span>';
-				});
-
-				createDiv += '			</div>';
-				createDiv += '		</div>';
-				createDiv += '	</div>';
-				createDiv += '</div>';
-
-				let tmpObj = {};
-				tmpObj.seriesData = [];
-				tmpObj.categories = [];
-				(dataSort.dataViz).forEach((val, idx) => {
-					tmpObj.seriesData.push(val.figure_value);
-					tmpObj.categories.push((new Date(val.figure_date)).getTime());
-				});
-				// console.log(val.figure_name);
-				// console.log(tmpObj);
-				// console.log("--------------------");
-				tmpArrViz.push(tmpObj);
-
-				x++;
-			}
-		}
-	});
-
-	$(".figureNameArea").append(createDiv);
-	createLineChart(tmpArrViz);
-
-}
-
 async function init() {
 	let tmpObj = {};
 	tmpObj.need = "";
@@ -724,75 +489,7 @@ async function init() {
 	let tmpCrisisName = "";
 	let tmpIso3 = "";
 
-	_T_DATA_VISUALIZATION = await d3.csv("assets/csv/dataviz-reliefweb-visualization.csv").then((dt) => {
-
-		dt.forEach((val, idx) => {
-			let objFigureValue = {};
-			let objData = {};
-			let objFigureDetail = {};
-			let objData2 = {};
-
-
-			// ALL COUNTRY
-			let tmpCheckData = tmpDataForVisualization.find(o => o.figure_name == val.figure_name);
-
-			objData.crisis_index = val.crisis_index;
-			objData.crisis_name = val.crisis_name;
-			objData.crisis_iso3 = val.crisis_iso3;
-			objData.figure_name = val.figure_name;
-			objData.figure_source = val.figure_source;
-			objData.figure_value = parseInt(val.figure_value);
-			objData.figure_date = val.figure_date;
-			objData.figure_url = val.figure_url;
-
-			if (tmpCheckData === undefined) {
-				objFigureValue.figure_name = val.figure_name;
-				objFigureValue.data = [];
-				objFigureValue.data.push(objData);
-				tmpDataForVisualization.push(objFigureValue);
-			} else {
-				let getIdx = tmpDataForVisualization.findIndex(o => o.figure_name == val.figure_name);
-				tmpDataForVisualization[getIdx].data.push(objData);
-			}
-
-
-			// DETAIL COUNTRY
-			let tmpCheckData2 = tmpDataForVisualizationDetail.find(o => o.crisis_name == val.crisis_name);
-			if (tmpCheckData2 === undefined) {
-				objFigureDetail.crisis_name = val.crisis_name;
-				objFigureDetail.data = [];
-
-				objData2.figure_name = val.figure_name;
-				objData2.data = [];
-				objData2.data.push(objData);
-
-				objFigureDetail.data.push(objData2);
-
-				tmpDataForVisualizationDetail.push(objFigureDetail);
-			} else {
-				let getIdx2 = tmpDataForVisualizationDetail.findIndex(o => o.crisis_name == val.crisis_name);
-
-				let checkFigureName = tmpDataForVisualizationDetail[getIdx2].data.find(o => o.figure_name == val.figure_name);
-				if (checkFigureName === undefined) {
-					objData2.figure_name = val.figure_name;
-					objData2.data = [];
-					objData2.data.push(objData);
-					tmpDataForVisualizationDetail[getIdx2].data.push(objData2);
-				} else {
-					let getIdx3 = tmpDataForVisualizationDetail[getIdx2].data.findIndex(o => o.figure_name == val.figure_name);
-					tmpDataForVisualizationDetail[getIdx2].data[getIdx3].data.push(objData);
-				}
-
-			}
-
-
-
-		});
-
-		return dt;
-	});
-
-	_T_DATA = await d3.csv("assets/csv/dataviz-reliefweb-new.csv").then((dt) => {
+	_T_DATA = await d3.csv("assets/csv/dataviz-reliefweb-new2.csv").then((dt) => {
 		// for table
 		let tmpTotalPeopleInNeed = 0;
 		let tmpPeopleTargeted = 0;
@@ -826,6 +523,17 @@ async function init() {
 			dataDetailMapsForTable[val.crisis_index].push(obj);
 			dataDetailMapsForTable[val.crisis_index]["maxValue"] = parseInt(dataDetailMapsForTable[val.crisis_index]["maxValue"]) > parseInt(val.figure_value) ? parseInt(dataDetailMapsForTable[val.crisis_index]["maxValue"]) : parseInt(val.figure_value);
 			maxValue = maxValue < parseInt(val.figure_value) ? parseInt(val.figure_value) : maxValue;
+
+			if (dataGroup[val.crisis_index] === undefined) {
+				dataGroup[val.crisis_index] = [];
+			}
+			if (dataGroup[val.crisis_index][val.figure_name] === undefined) {
+				dataGroup[val.crisis_index][val.figure_name] = [];
+				dataGroup[val.crisis_index][val.figure_name]["crisis_name"] = val.crisis_name;
+				dataGroup[val.crisis_index][val.figure_name]["figure_value"] = 0;
+			}
+			dataGroup[val.crisis_index][val.figure_name]["figure_value"] += parseInt(val.figure_value);
+
 		});
 
 		dt.forEach((val, idx) => {
@@ -884,38 +592,27 @@ async function init() {
 			let tmpFigureName = val.figure_name.includes("Refugees");
 			if (tmpFigureName === true) {
 				tmpFigureName = "Refugees";
-
-				let objTitleSame = {};
-				let tmpCheckData = tmpDataTitleSame.find(o => o.title == tmpFigureName && o.data[0] == val.crisis_name);
-				let getIdx = tmpDataTitleSame.findIndex(o => o.title == tmpFigureName && o.data[0] == val.crisis_name);
-				// buat sum figure_value yg namanya sama di satu negara
-				if (tmpCheckData === undefined) {
-					objTitleSame.title = tmpFigureName;
-					objTitleSame.data = [];
-					objTitleSame.data.push(val.crisis_name);
-					objTitleSame.data.push(parseInt(val.figure_value));
-					tmpDataTitleSame.push(objTitleSame);
-				} else {
-					tmpDataTitleSame[getIdx].data[1] += parseInt(val.figure_value);
-				}
 			} else {
 				tmpFigureName = val.figure_name;
-				if (barChart[tmpFigureName] === undefined) {
-					barChart[tmpFigureName] = [];
-					barChart[tmpFigureName]["crisis_name"] = "";
-					barChart[tmpFigureName]["figure_value"] = "";
-
-					barChart[tmpFigureName]["crisis_name"] += val.crisis_name + ";";
-					barChart[tmpFigureName]["figure_value"] += (val.figure_value != undefined ? val.figure_value : "-") + ";";
-				} else {
-					barChart[tmpFigureName]["crisis_name"] += val.crisis_name + ";";
-					barChart[tmpFigureName]["figure_value"] += (val.figure_value != undefined ? val.figure_value : "-") + ";";
-				}
 			}
 
 			if (dataComboBox.includes(tmpFigureName) === false) {
 				dataComboBox.push(tmpFigureName);
 			}
+
+			// if (barChart[tmpFigureName] === undefined) {
+			// 	barChart[tmpFigureName] = [];
+			// 	barChart[tmpFigureName]["crisis_name"] = "";
+			// 	barChart[tmpFigureName]["figure_value"] = "";
+
+			// 	barChart[tmpFigureName]["crisis_name"] += val.crisis_name + ";";
+			// 	barChart[tmpFigureName]["figure_value"] += (val.figure_value != undefined ? val.figure_value : "-") + ";";
+			// } else {
+			// 	barChart[tmpFigureName]["crisis_name"] += val.crisis_name + ";";
+			// 	barChart[tmpFigureName]["figure_value"] += (val.figure_value != undefined ? val.figure_value : "-") + ";";
+			// }
+
+
 
 
 			// MAPS
@@ -963,18 +660,9 @@ async function init() {
 			x++;
 		});
 
-		tmpDataTitleSame.forEach((val, idx) => {
-			if (barChart[val.title] === undefined) {
-				barChart[val.title] = [];
-				barChart[val.title]["crisis_name"] = "";
-				barChart[val.title]["figure_value"] = "";
 
-				barChart[val.title]["crisis_name"] += val.data[0] + ";";
-				barChart[val.title]["figure_value"] += (val.data[1] != undefined ? val.data[1] : "-") + ";";
-			} else {
-				barChart[val.title]["crisis_name"] += val.data[0] + ";";
-				barChart[val.title]["figure_value"] += (val.data[1] != undefined ? val.data[1] : "-") + ";";
-			}
+		dataDetailMapsForTable.forEach((val, idx) => {
+
 		});
 
 		return dt;
@@ -1011,11 +699,6 @@ async function init() {
 
 	// init map
 	drawGeoJson("idGeoWorld", _GEO_WORLD);
-
-	if (changeMaps == true) {
-		createFiguresArea('world',tmpDataForVisualization);
-		changeMaps = false;
-	}
 
 	// init bar chart
 	changeBarChart(0, "#barChart1");
@@ -1177,20 +860,6 @@ $(document).ready(function () {
 				$(".mainMenu").removeClass("active");
 				$(".menuMaps").addClass("active");
 
-
-				let tmpDataFigures = tmpDataForVisualizationDetail.find(o => o.crisis_name == tmpCountryName);
-				if (tmpDataFigures !== undefined) {
-					// console.log(tmpDataFigures);
-					// tmpDataFigures.forEach((val, idx) => {
-
-					// });
-
-					createFiguresArea('country',tmpDataFigures.data);
-					changeMaps = true;
-
-				}
-
-
 			} else {
 				map.setView(L.latLng(42.722424, 34.7036507), 2.5);
 				$(".mainChart").show();
@@ -1205,11 +874,6 @@ $(document).ready(function () {
 				$(".mainMenu").removeClass("active");
 				$(".menuDashboard").addClass("active");
 				$(".mainDiv").show();
-
-
-				createFiguresArea('world',tmpDataForVisualization);
-				changeMaps = true;
-
 			}
 		}
 
@@ -1222,11 +886,9 @@ $(document).ready(function () {
 		if (getDiv != "dashboard") {
 			$(".mainDiv").hide();
 			$(".main" + getDiv).show();
-			$(".dis-none").hide();
 		} else {
 			$(".allCountry").val("all").trigger('change');
 			$(".mainDiv").show();
-			$(".dis-none").hide();
 		}
 	});
 
